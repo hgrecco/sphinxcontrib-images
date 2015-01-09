@@ -159,6 +159,8 @@ class ImageDirective(Directive):
 
         if uri.startswith('/'):
             return False
+        if uri.startswith('../'):
+            return False
         if uri.startswith('file://'):
             return False
         if os.path.isfile(os.path.join(env.srcdir, uri)):
